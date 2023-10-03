@@ -15,6 +15,8 @@
   const app= express();
   
   app.use(cors());
+
+  mongoose.connect();
   
   app.use(express.json());
   
@@ -22,3 +24,9 @@
       console.log('listening on 1080');
   })
 ```
+
+
+```
+brew services start mongodb-community
+
+````
