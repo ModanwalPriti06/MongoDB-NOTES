@@ -33,5 +33,11 @@ brew services start mongodb-community
 
 ````
 
-## Get, Post, Put and Delete
+## API METHODS: Get, Post, Put and Delete
 1. *GET* : This method is used to request data from a web server. When you type a URL into your web browser and press Enter, your browser sends a GET request to the server, asking for a specific web page. It's like asking for information or reading data. GET requests should not change the server's state and are generally considered safe and idempotent, meaning multiple identical requests should have the same effect as a single request.
+
+2. *POST*: POST is used to submit data to be processed by a specific resource on the server. It's often used when you want to send data to the server to create a new resource. For example, when you submit a form on a website, the data you enter is typically sent to the server using a POST request. POST requests can change the server's state and are not idempotent, meaning multiple identical requests may have different effects.
+
+3. *PUT*: PUT is used to update or replace an existing resource on the server with the data provided. It's like saying, "Here's the new version of this resource; please replace the old one with it." PUT requests are typically idempotent, meaning making the same request multiple times should have the same effect as making it once.
+
+4. *DELETE*: DELETE is used to request the removal of a specific resource on the server. It's like asking the server to get rid of something. DELETE requests are also typically idempotent, meaning multiple identical requests should have the same effect as a single request.
