@@ -1,5 +1,7 @@
 # MERN-NOTES
 
+##Install Mongodb and compass
+
 ## Start Mongodb And connection frontend to backend
 
 1. npm i
@@ -30,3 +32,6 @@
 brew services start mongodb-community
 
 ````
+
+## Get, Post, Put and Delete
+1. *GET* : This method is used to request data from a web server. When you type a URL into your web browser and press Enter, your browser sends a GET request to the server, asking for a specific web page. It's like asking for information or reading data. GET requests should not change the server's state and are generally considered safe and idempotent, meaning multiple identical requests should have the same effect as a single request.
