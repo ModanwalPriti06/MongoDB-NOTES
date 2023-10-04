@@ -56,8 +56,8 @@ brew services start mongodb-community
 
 ```Usage``` POST requests are not idempotent, which means that making the same request multiple times may result in different actions or resource creations.
 
-#CRUD OPERATION CODE
-###POST
+# CRUD OPERATION CODE
+### POST
 ```
  const handleSubmit = async (e) => {
     e.preventDefault();
