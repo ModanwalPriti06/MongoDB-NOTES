@@ -63,7 +63,7 @@ brew services start mongodb-community
     e.preventDefault();
 
     try {
-      const result = await axios.post('/submit', formData);
+      const result = await axios.post('/submit', formData);  //formData is object inside all data which is add into backend
       setResponse(result.data);
     } catch (error) {
       console.error(error);
