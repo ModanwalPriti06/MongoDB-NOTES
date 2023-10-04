@@ -45,10 +45,14 @@ brew services start mongodb-community
 ## Difference betweeen PUT and POST
 
 ```Purpose``` The PUT method is used to request that the server updates a resource or creates it if it doesn't exist at the specified URL.
+
 ```Idempotent``` PUT requests are idempotent, which means that making the same request multiple times should have the same effect as making it once.
+
 ```Usage``` Typically, PUT is used when you have complete knowledge of the resource's URL, and you want to replace or update the resource entirely with the data provided in the request body.
 
 ```Purpose``` The POST method is used to submit data to be processed by a resource
+
 ```Idempotent``` It is often used to create a new resource on the server.
+
 ```Usage``` POST requests are not idempotent, which means that making the same request multiple times may result in different actions or resource creations.
 
