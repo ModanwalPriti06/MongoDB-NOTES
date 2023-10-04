@@ -57,7 +57,7 @@ brew services start mongodb-community
 ```Usage``` POST requests are not idempotent, which means that making the same request multiple times may result in different actions or resource creations.
 
 # CRUD OPERATION CODE
-### POST
+### POST-1
 ```
  const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,6 +76,20 @@ app.post('/submit', (req, res) => {
   const { name, age } = req.body;
   console.log(`Received data: Name: ${name}, Age: ${age}`);
   res.send('Data received successfully!');
+});
+```
+### POST-2
+```
+app.post('/api/tasks', async (req, res) => {
+  try {
+    const { title, description } = req.body;
+    const task = new Task({ title, description });
+    await task.save();
+    res.json(task);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 ```
 
