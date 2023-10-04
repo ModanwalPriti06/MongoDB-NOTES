@@ -56,3 +56,28 @@ brew services start mongodb-community
 
 ```Usage``` POST requests are not idempotent, which means that making the same request multiple times may result in different actions or resource creations.
 
+#CRUD OPERATION CODE
+###POST
+```
+ const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const result = await axios.post('/submit', formData);
+      setResponse(result.data);
+    } catch (error) {
+      console.error(error);
+      setResponse('Error');
+    }
+  };
+```
+```
+app.post('/submit', (req, res) => {
+  const { name, age } = req.body;
+  console.log(`Received data: Name: ${name}, Age: ${age}`);
+  res.send('Data received successfully!');
+});
+```
+
+
+
