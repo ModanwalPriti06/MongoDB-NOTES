@@ -192,10 +192,55 @@ db.people.remove();
         or
 db.people.remove({});
 ```
-#### (Use the positional operator $)
+### (Use the positional operator $)
 
 Ques: {name: 'Tom', age: 28, marks: [50, 60, 70]} Update Tom's marks to 55 where marks are 50 (Use the positional operator $)
 Ans: db.people.update({name: "Tom", marks: 50}, {"$set": {"marks.$": 55}})
+
+## limit, skip, sort and count the results of the find() method
+- db.test.find({}).skip(3)
+- db.test.find({}).sort({ "name" : -1}) //descending order sort
+- db.test.find({}).count()
+- db.test.find({}).sort({ "name" : -1}).skip(1).limit(2)
+
+## Query Document - Using AND, OR and IN Conditions
+- AND Queries
+```
+db.students.find({
+    "firstName": "Prosen",
+    "age": {
+"$gte": 23 }
+});
+```
+- Or Queries
+```
+db.students.find({
+     "$or": [{
+         "firstName": "Prosen"
+     }, {
+         "age": {
+             "$gte": 23
+} }]
+});
+```
+- And OR Queries
+```
+db.students.find({
+firstName : "Prosen",
+$or : [
+{age : 23},
+{age : 25} ]
+}]
+```
+-IN Queries 
+```db.students.find(lastName:{$in:["Ghosh", "Amin"]})```
+
+# Aggregration
+
+
+
+
+
 
 
 
