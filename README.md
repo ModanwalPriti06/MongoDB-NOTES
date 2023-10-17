@@ -1,4 +1,7 @@
-:smile: ehfjf
+:smile: 
+:rocket:
+:cry:
+✍️
 ```
 Emphasis and Lists:
 Use *italic* or **bold** to add emphasis.
