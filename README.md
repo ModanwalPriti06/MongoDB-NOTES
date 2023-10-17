@@ -1,4 +1,4 @@
-`:smile:` ehfjf
+:smile: ehfjf
 ```
 Emphasis and Lists:
 Use *italic* or **bold** to add emphasis.
