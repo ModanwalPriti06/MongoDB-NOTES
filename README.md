@@ -174,7 +174,7 @@ db.people.updateMany({name: 'Tom'},{age: 29, name: 'Tom'})
 db.people.update({name: 'Tom'}, {$set: {age: 29}})
 db.people.updateOne({name: 'Tom'},{$set:{age: 30}) //Will update only first matching document.
 db.people.updateMany({name: 'Tom'},{$set:{age: 30}}) //Will update all matching documents.
- db.people.updateMany({name: 'Tom'},{$set:{age: 30, salary:50000}})
+db.people.updateMany({name: 'Tom'},{$set:{age: 30, salary:50000}})
 ```
 ## Delete
 ```
@@ -232,10 +232,14 @@ $or : [
 {age : 25} ]
 }]
 ```
--IN Queries 
+- IN Queries 
 ```db.students.find(lastName:{$in:["Ghosh", "Amin"]})```
 
 # Aggregration
+
+**Parameter**  **pipeline**
+options        array(A sequence of data aggregation operations or stages) 
+Details        document(optional, available only if pipeline present as an array)
 
 
 
