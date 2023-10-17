@@ -93,5 +93,52 @@ app.post('/api/tasks', async (req, res) => {
 });
 ```
 
+#CRUD
+## Create
+```
+db.mydb.insert({name: 'priti'})
+db.mydb.insertOne({name: 'priti'});
+db.mydb.insertMany([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
+
+OR
+
+db.mydb.save({name: 'priti'});
+db.mydb.save([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
+```
+## Read
+```
+db.mydb.find()
+db.mydb.find({})
+db.people.find().pretty()
+db.mydb.findOne({name:'priti'})
+db.people.find({name: 'Tom'}, {_id: 0, age: 1})
+```
+## Update
+```
+db.people.update({name: 'Tom'}, {age: 29, name: 'Tom'})
+db.people.updateOne({name: 'Tom'},{age: 29, name: 'Tom'})
+db.people.updateMany({name: 'Tom'},{age: 29, name: 'Tom'})
+db.people.update({name: 'Tom'}, {$set: {age: 29}})
+db.people.updateOne({name: 'Tom'},{$set:{age: 30}) //Will update only first matching document.
+db.people.updateMany({name: 'Tom'},{$set:{age: 30}}) //Will update all matching documents.
+ db.people.updateMany({name: 'Tom'},{$set:{age: 30, salary:50000}})
+```
+## Delete
+```
+// New Version
+db.people.deleteOne({name: 'Tom'})
+db.people.deleteMany({name: 'Tom'})
+
+// All versions
+db.people.remove({name: 'Tom'})
+db.people.remove({name: 'Tom'}, true)
+```
+MongoDB's remove() method. If you execute this command without any argument or without empty argument it will remove all documents from the collection.
+```
+db.people.remove();
+        or
+db.people.remove({});
+```
+
 
 
