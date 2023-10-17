@@ -139,6 +139,10 @@ db.people.remove();
         or
 db.people.remove({});
 ```
+#### (Use the positional operator $)
+
+Ques: {name: 'Tom', age: 28, marks: [50, 60, 70]} Update Tom's marks to 55 where marks are 50 (Use the positional operator $)
+Ans: db.people.update({name: "Tom", marks: 50}, {"$set": {"marks.$": 55}})
 
 
 
