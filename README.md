@@ -194,7 +194,8 @@ db.people.remove({});
 ```
 ### (Use the positional operator $)
 
-Ques: {name: 'Tom', age: 28, marks: [50, 60, 70]} Update Tom's marks to 55 where marks are 50 (Use the positional operator $)
+Ques: {name: 'Tom', age: 28, marks: [50, 60, 70]} Update Tom's marks to 55 where marks are 50 (Use the positional operator $)           
+
 Ans: db.people.update({name: "Tom", marks: 50}, {"$set": {"marks.$": 55}})
 
 ## limit, skip, sort and count the results of the find() method
@@ -278,11 +279,31 @@ db.employees.aggregate([{$group:{"_id":"$dept", "noOfEmployee":{$sum:1},"maxExp"
 ```
 db.employees.aggregate([{$group:{"_id":"dept", "arrPush":{$push:"$age"}, "arrSet":{$addToSet:"$age"}}}])
 ```
-9. 
-
-
-
-
+9. Unwind: Used to create multiple in-memory documents for each value in the specified array type field, then we
+can do further aggregation based on those values.
+```
+db.employees.aggregate([{$match:{"name":"Adma"}}, {$unwind:"$languages"}]);
+```
+10. Sorting
+```
+db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1}}, {$sort: {name:1}}]);
+```
+11. Skip
+```
+db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1}}, {$sort: {name:-1}}, {$skip:1}]);
+```
+12. Limit
+```
+db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1}}, {$sort: {name:-1}}, {$limit:1}]);
+```
+13. Comparison operator in projection
+```
+db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1, age: {$gt: ["$age", 30]}}}]);
+```
+14. Comparison operator in match
+```
+db.employees.aggregate([{$match:{dept:"Admin", age: {$gt:30}}}, {$project:{"name":1, "dept":1}}]);
+```
 
 
 
