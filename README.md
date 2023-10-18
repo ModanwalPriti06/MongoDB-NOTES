@@ -236,10 +236,10 @@ $or : [
 ```db.students.find(lastName:{$in:["Ghosh", "Amin"]})```
 
 # Aggregration
+Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
 
-**Parameter**  **pipeline**
-options        array(A sequence of data aggregation operations or stages) 
-Details        document(optional, available only if pipeline present as an array)
+
+
 
 
 
