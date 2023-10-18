@@ -304,7 +304,28 @@ db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1, 
 ```
 db.employees.aggregate([{$match:{dept:"Admin", age: {$gt:30}}}, {$project:{"name":1, "dept":1}}]);
 ```
+## Get sample data
 
+To get random data from certain collection refer to $sample aggregation.
+```db.emplyees.aggregate({ $sample: { size:1 } })```
+where size stands for number of items to select.
+
+## Left Outer Join with aggregation ( $Lookup)
+```
+let col_1 = db.collection('col_1'); let col_2 = db.collection('col_2'); col_1 .aggregate([
+    { $match: { "_id": 1 } },
+    {
+        $lookup: {
+            from: "col_2",
+            localField: "id",
+            foreignField: "id",
+            as: "new_document"
+        }
+}
+],function (err, result){
+    res.send(result);
+});
+```
 
 
 
