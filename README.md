@@ -237,6 +237,48 @@ $or : [
 
 # Aggregration
 Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
+Aggregation is used to perform complex data search operations in the mongo query which can't be done in normal "find" query.
+
+- count: $count
+- sum: $sum
+- average: $avg
+- group: $group
+
+## Aggregate query examples useful for work and learning:
+1. Match: Used to match documents
+  ```
+  db.employees.aggregate([{$match:{dept:"Admin"}}]);
+  ```
+   
+2. Project: Used to populate specific field's value(s)
+   ```
+   db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1}}]);
+   ```
+3. Group: $group is used to group documents by specific field, here documents are grouped by "dept" field's value. Another useful feature is that you can group by null, it means all documents will be aggregated into one.
+```
+db.employees.aggregate([{$group:{"_id":"$dept"}}]);
+```
+4. Sum: $sum is used to count or sum the values inside a group.
+```
+db.employees.aggregate([{$group:{"_id":"$dept", "noOfDept":{$sum:1}}}]);
+```
+5. Average: Calculates average of specific field's value per group.
+```
+db.employees.aggregate([{$group:{"_id":"$dept", "noOfEmployee":{$sum:1},"avgExp":{$avg:"$totalExp"}}}]);
+```
+6. Minimum: Finds minimum value of a field in each group.
+```
+db.employees.aggregate([{$group:{"_id":"$dept", "noOfEmployee":{$sum:1},"minExp":{$min:"$totalExp"}}}]);
+```
+7. Maximum: Finds maximum value of a field in each group.
+```
+db.employees.aggregate([{$group:{"_id":"$dept", "noOfEmployee":{$sum:1},"maxExp":{$max:"$totalExp"}}}]);
+```
+8. Push and addToSet: Push adds a field's value form each document in group to an array used to project data in array format, addToSet is simlar to push but it omits duplicate values.
+```
+db.employees.aggregate([{$group:{"_id":"dept", "arrPush":{$push:"$age"}, "arrSet":{$addToSet:"$age"}}}])
+```
+9. 
 
 
 
