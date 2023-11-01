@@ -52,7 +52,6 @@ You can use emoji in your README to add some personality and context. For exampl
 ```
 
 # MERN-NOTES
----
 ##Install Mongodb and compass
 
 ## Start Mongodb And connection frontend to backend
@@ -86,15 +85,13 @@ brew services start mongodb-community
 
 ````
 # Setup and Installation
----
 ## Front-end dependencies
 - npm install
 - react-router-dom
 - npm install react-bootstrap
 - npm install axios
   
-#Setup of Backend
----
+# Setup of Backend
 ## Back-end dependencies
 - npm install mongoose express body-parser cors
 
@@ -102,6 +99,7 @@ brew services start mongodb-community
 ![Alt Text](https://dotnettrickscloud.blob.core.windows.net/img/react/meanst-crud2.png)
 
 ## Setting up a server environment
+---
 We are going to create the server application with the help of nodejs and express framework and will set up basic configuration such as database connection with Mongo server, route configuration, express configuration and other required setup.
 
 ```
