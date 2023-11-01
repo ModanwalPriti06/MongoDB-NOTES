@@ -52,7 +52,7 @@ You can use emoji in your README to add some personality and context. For exampl
 ```
 
 # MERN-NOTES
-
+---
 ##Install Mongodb and compass
 
 ## Start Mongodb And connection frontend to backend
@@ -85,18 +85,93 @@ You can use emoji in your README to add some personality and context. For exampl
 brew services start mongodb-community
 
 ````
-
-# Front-end dependencies
+# Setup and Installation
+---
+## Front-end dependencies
 - npm install
 - react-router-dom
 - npm install react-bootstrap
 - npm install axios
-
-# Back-end dependencies
+  
+#Setup of Backend
+---
+## Back-end dependencies
 - npm install mongoose express body-parser cors
 
-# Backend File Structure
+## Backend File Structure
 ![Alt Text](https://dotnettrickscloud.blob.core.windows.net/img/react/meanst-crud2.png)
+
+## Setting up a server environment
+We are going to create the server application with the help of nodejs and express framework and will set up basic configuration such as database connection with Mongo server, route configuration, express configuration and other required setup.
+
+```
+ // Imported required packages
+ const express = require('express'),
+ path = require('path'),
+ bodyParser = require('body-parser'),
+ cors = require('cors'),
+ mongoose = require('mongoose');
+ 
+ // MongoDB Databse url
+ var mongoDatabase = 'mongodb://localhost:27017/employeeDetails';
+ 
+ // Created express server
+ const app = express();
+ mongoose.Promise = global.Promise;
+ 
+ // Connect Mongodb Database
+ mongoose.connect(mongoDatabase, { useNewUrlParser: true }).then(
+ () => { console.log('Database is connected') },
+ err => { console.log('There is problem while connecting database ' + err) }
+ );
+ 
+ // All the express routes
+ const employeeRoutes = require('../Routes/Employee.route');
+ 
+ // Conver incoming data to JSON format
+ app.use(bodyParser.json());
+ 
+ // Enabled CORS
+ app.use(cors());
+ 
+ // Setup for the server port number
+ const port = process.env.PORT || 4000;
+ 
+ // Routes Configuration
+ app.use('/employees', employeeRoutes);
+ 
+ // Staring our express server
+ const server = app.listen(port, function () {
+ console.log('Server Lisening On Port : ' + port);
+ });
+```
+## MongoDB Model
+```
+const mongoose = require('mongoose');
+ const Schema = mongoose.Schema;
+ 
+ // List of columns for Employee schema
+ let Employee = new Schema({
+ firstName: {
+ type: String
+ },
+ lastName: {
+ type: String
+ },
+ email: {
+ type: String
+ },
+ phone: {
+ type: Number
+ }
+ },{
+ collection: 'employees'
+ });
+ 
+ module.exports = mongoose.model('Employee', Employee);
+```
+
+
 
 ## API METHODS: Get, Post, Put and Delete
 1. *GET* : This method is used to request data from a web server. When you type a URL into your web browser and press Enter, your browser sends a GET request to the server, asking for a specific web page. It's like asking for information or reading data. GET requests should not change the server's state.
