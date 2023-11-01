@@ -86,6 +86,18 @@ brew services start mongodb-community
 
 ````
 
+# Front-end dependencies
+- npm install
+- react-router-dom
+- npm install react-bootstrap
+- npm install axios
+
+# Back-end dependencies
+- npm install mongoose express body-parser cors
+
+# Backend File Structure
+![Alt Text](https://dotnettrickscloud.blob.core.windows.net/img/react/meanst-crud2.png)
+
 ## API METHODS: Get, Post, Put and Delete
 1. *GET* : This method is used to request data from a web server. When you type a URL into your web browser and press Enter, your browser sends a GET request to the server, asking for a specific web page. It's like asking for information or reading data. GET requests should not change the server's state.
 
