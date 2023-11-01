@@ -194,9 +194,9 @@ const mongoose = require('mongoose');
 
 ```Usage``` POST requests are not idempotent, which means that making the same request multiple times may result in different actions or resource creations.
 
-```
-Pitfall 📝
-```
+`
+Pitfall
+`
 
 # CRUD OPERATION CODE
 ### POST-1
