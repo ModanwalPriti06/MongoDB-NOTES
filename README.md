@@ -194,9 +194,15 @@ const mongoose = require('mongoose');
 
 ```Usage``` POST requests are not idempotent, which means that making the same request multiple times may result in different actions or resource creations.
 
-`
-Pitfall
-`
+---
+`Pitfall:` 
+
+### Backend:
+- Create: POST-> UserModal.create(req.body)
+- Read: GET->  UserModal.find({})
+- Update: -> UserModal.findByIdAndUpdate({{_id:id},{name: req.body.name}}) //here _id it's by default field but name,age etc and other key is that same name which is in model.
+- Delete -> UserModal.findByIdAndDelete({_id:req.params.id})
+
 
 # CRUD OPERATION CODE
 ### POST-1
