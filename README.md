@@ -198,8 +198,8 @@ const mongoose = require('mongoose');
 ### Pitfall Backend CRUD Operation:
 - Create: POST-> UserModal.create(req.body)
 - Read: GET->  UserModal.find({})
-- Update: -> UserModal.findByIdAndUpdate({{_id:id},{name: req.body.name}}) //here _id it's by default field but name,age etc and other key is that same name which is in model.
-- Delete -> UserModal.findByIdAndDelete({_id:req.params.id})
+- Update: PUT-> UserModal.findByIdAndUpdate({{_id:id},{name: req.body.name}}) //here _id it's by default field but name,age etc and other key is that same name which is in model.
+- Delete: DELETE -> UserModal.findByIdAndDelete({_id:req.params.id})
 
 ### Frontend CRUD OPeration TODO:
 - Add:
