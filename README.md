@@ -447,6 +447,11 @@ db.posts.updateOne(
   { upsert: true }
 )
 ```
+# pitfall
+- whenever send data from frontend to backend then make only object we can send so make obj and push data into object then send and get req.body.XX
+- 661 Upload File
+
+
 # MongoDB Query Operators
 ## Comparison
 The following operators can be used in queries to compare values:
