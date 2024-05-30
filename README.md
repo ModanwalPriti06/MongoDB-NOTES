@@ -70,7 +70,7 @@ You can use emoji in your README to add some personality and context. For exampl
   
   app.use(cors());
 
-  mongoose.connect();
+  mongoose.connect('mongodb://localhost:27017');
   
   app.use(express.json());
   
