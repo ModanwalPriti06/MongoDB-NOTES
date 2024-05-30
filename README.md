@@ -56,7 +56,7 @@ You can use emoji in your README to add some personality and context. For exampl
 
 ## Start Mongodb And connection frontend to backend
 
-1. npm i
+1. npm i / npm init -y
 2. npm i express mongoose cors nodemon
 3. goto package.json and add "start": "nodemon index.js" in script
 4. start sever using npm start
