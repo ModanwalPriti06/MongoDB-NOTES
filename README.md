@@ -143,6 +143,16 @@ We are going to create the server application with the help of nodejs and expres
  console.log('Server Lisening On Port : ' + port);
  });
 ```
+
+# MongoDB Topic
+1. MongoDB’s design philosophy and architecture
+2. CRUD operations
+3. Data modeling
+4. Indexing and performance
+5. Aggregation
+6. Replication
+7. Sharding
+   
 ## MongoDB Model
 ```
 const mongoose = require('mongoose');
