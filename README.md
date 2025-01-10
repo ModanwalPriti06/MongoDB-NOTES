@@ -96,7 +96,7 @@ brew services start mongodb-community
 - npm install mongoose express body-parser cors
 
 ## Backend File Structure
-![Alt Text](https://dotnettrickscloud.blob.core.windows.net/img/react/meanst-crud2.png)
+![mongodb structure](https://dotnettrickscloud.blob.core.windows.net/img/react/meanst-crud2.png)
 
 ## Setting up a server environment
 ---
