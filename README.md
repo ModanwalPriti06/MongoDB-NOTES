@@ -489,6 +489,12 @@ The following operators assist in evaluating documents.
 - $text: Performs a text search
 - $where: Uses a JavaScript expression to match documents
 
+---
+# MongoDB Udemy
+
+
+
+
 
 
 
