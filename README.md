@@ -514,11 +514,24 @@ The following operators assist in evaluating documents.
 - neo4j
 - Amazon DynamoDB
 
-<img width="600" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
+<img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
 
-<img width="600" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
+<img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
 
+ 
+## How does mongoDB stored data?
+- MongoDB stores data records as documents (Specially in BSON document) which is gathered together in collections.
+- MongoDB Data Storage Structure
+1. **Database**
+- MongoDB has multiple databases (like in SQL). Each database contains:
+2. **Collections**
+- Collections are like tables in SQL, but more flexible. Each collection contains:
+3. **Documents**
+- Documents are the basic units of data in MongoDB. They are stored in a format called BSON (Binary JSON). Each document is like a JSON object.
 
+## MongoDB is a Schema-less database. If Yes how do you create Schema in MongoDB?
+- The schema of a database describes the structure of the data to be stored.
+   <img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/f2599091-601d-4fc0-bc5c-d12d543a0d75" />
 
 
 
