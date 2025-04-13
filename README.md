@@ -494,6 +494,9 @@ The following operators assist in evaluating documents.
 ---
 # MongoDB 
 
+## Feature of MongoDB
+<img  width="1000" height="600"  alt="Screenshot 2025-04-13 at 4 49 21 PM" src="https://github.com/user-attachments/assets/6967672d-bd0c-4181-8eb0-b476b7683b47" />
+
 ## Difference between mongoDB and SQL
 | **Feature** | **MongoDB (NoSQL)** | **SQL (MySQL, PostgreSQL,** | 
 | ------------ | ---------------| ------------ |
@@ -611,6 +614,48 @@ db.logs.isCapped()
 - Capped collections are perfect when you need fast writes, fixed storage, and don't care about keeping old data forever.
 
 ## Handle large file image and all
-<img width="1020" height="500" alt="Screenshot 2025-04-13 at 4 19 16 PM" src="https://github.com/user-attachments/assets/dae2b4b8-547d-4ee2-aaee-2e18b1e2437d" />
+  <img width="1020" height="500" alt="Screenshot 2025-04-13 at 4 20 40 PM" src="https://github.com/user-attachments/assets/91fcc339-ef86-4377-8ccb-dc24211202f3" />
+
+## Aggregation
+<img width="1020" height="500" alt="aggregation" src="https://github.com/user-attachments/assets/9a6f1fe1-369a-433b-8387-a7d621fc7556" />
+
+## What the meant by _id
+<img width="1020" height="500" alt="id" src="https://github.com/user-attachments/assets/82abae70-e4ab-4aeb-8a47-3af4f866ad79" />
+
+## What is the some utilities for Backup nd restoring in MongoDB?
+<img width="1020" height="500" alt="backup" src="https://github.com/user-attachments/assets/288962e6-8739-48be-83c9-c17a29fff0b0" />
+
+## What is map reduce process in MongoDB?
+- Map-reeduce s a data processing paradigms for condensing large volume of data into useful aggregation results.
+- Map-Reduce is a programming model for processing and transforming large amounts of data using two functions:
+1. Map → processes each document and emits key-value pairs.
+2. Reduce → takes the emitted values with the same key and combines them.
+- It’s useful for grouping, filtering, summing, or transforming large datasets.
+
+  ## What is role of profiler in mongoDB?
+  - DB profiler use to collect information regarding the queries which are executed on an individual database instance.
+  - Its allow to us collect performance data about operation curring on a MongoDB instance.
+  - The MongoDB Profiler is a built-in tool that logs detailed information about database operations such as:
+   - Slow queries
+   - Writes
+   - Reads
+   - Index usage
+   - Aggregation performance
+
+## What is regular Expression? ($regex operator)
+- A regular expression (RegEx or regex) is a sequence of characters that defines a search pattern. It’s used to match, search, or replace text based on specific patterns.
+- Provide pattern and sequence of character for matching text and define search pattern.
+- Query db to find smaller subset of data within a collection.
+
+## What is Shard Key
+<img  width="1020" height="500"  alt="Screenshot 2025-04-13 at 4 46 13 PM" src="https://github.com/user-attachments/assets/e1e7ead3-8f00-4803-8d2e-0c0a007f5808" />
+
+## $lookup operation is equivalent of JOIN in MongoDB.
+
+
+
+
+
+
 
 
