@@ -533,6 +533,8 @@ The following operators assist in evaluating documents.
 - The schema of a database describes the structure of the data to be stored.
    <img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/f2599091-601d-4fc0-bc5c-d12d543a0d75" />
 
+## Data Model
+   <img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
 
 
 
