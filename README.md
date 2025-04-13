@@ -531,15 +531,15 @@ The following operators assist in evaluating documents.
 
 ## MongoDB is a Schema-less database. If Yes how do you create Schema in MongoDB?
 - The schema of a database describes the structure of the data to be stored.
-   <img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/f2599091-601d-4fc0-bc5c-d12d543a0d75" />
+   <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/f2599091-601d-4fc0-bc5c-d12d543a0d75" />
 
 ## Data Model
-   <img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
+   <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
 
 ## Indexing
 - An index in MongoDB is similar to an index in a book — it helps MongoDB locate and access data faster without scanning every document in a collection.
 - By default, MongoDB creates an index on the _id field in every collection. You can also create custom indexes on any other field(s).
-<img width="924" height="600" alt="indexing" src="https://github.com/user-attachments/assets/87ce6c0f-a345-408e-b1a6-8bcdd78cf7ed" />
+<img width="924" height="500" alt="indexing" src="https://github.com/user-attachments/assets/87ce6c0f-a345-408e-b1a6-8bcdd78cf7ed" />
 
 ### How Indexing Works:
 1. Without an index:
@@ -550,12 +550,12 @@ The following operators assist in evaluating documents.
 - This makes queries much faster.
 
 ## what is MongoDB Replication and sharding
-<img width="1069" height="600" alt="Screenshot 2025-04-13 at 3 49 37 PM" src="https://github.com/user-attachments/assets/46352552-d2dd-44a4-9486-a08ae1180fc9" />
+<img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 49 37 PM" src="https://github.com/user-attachments/assets/46352552-d2dd-44a4-9486-a08ae1180fc9" />
 
-<img width="1069" height="600" alt="Screenshot 2025-04-13 at 3 52 06 PM" src="https://github.com/user-attachments/assets/1d444b99-ede4-4cc1-97c8-ad735e27f4e8" />
+<img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 52 06 PM" src="https://github.com/user-attachments/assets/1d444b99-ede4-4cc1-97c8-ad735e27f4e8" />
 
 ## Explain Horizontal and Vertical Scalling
-<img width="1069" height="600" alt="Screenshot 2025-04-13 at 3 53 43 PM" src="https://github.com/user-attachments/assets/00471fed-cfdd-460a-a348-189e42ec3a4e" />
+<img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 53 43 PM" src="https://github.com/user-attachments/assets/00471fed-cfdd-460a-a348-189e42ec3a4e" />
 
 
 
