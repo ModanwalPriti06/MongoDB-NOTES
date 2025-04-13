@@ -498,7 +498,7 @@ The following operators assist in evaluating documents.
 | **Feature** | **MongoDB (NoSQL)** | **SQL (MySQL, PostgreSQL,** | 
 | ------------ | ---------------| ------------ |
 | Data Structure| 	Document-based (JSON-like BSON)| 	Table-based (rows & columns)| 
-| Schema| 	Schema-less (flexible)| 	Fixed schema (defined in advance)| 
+| Schema| Schema-less (flexible)| 	Fixed schema (defined in advance)| 
 | Query Language	| MongoDB Query Language (MQL)| 	Structured Query Language (SQL)| 
 | Joins| 	Limited support via $lookup | Strong support for joins (foreign keys)| 
 | Scalability| 	Horizontally scalable (easy sharding)| 	Vertically scalable (harder to scale out)| 
@@ -506,6 +506,16 @@ The following operators assist in evaluating documents.
 | Use Case| 	Best for unstructured or semi-structured data	| Best for structured data with relationships| 
 | Speed	| Faster for large unstructured data sets | 	Slower when handling large, unrelated datasets| 
 | Examples	| MongoDB, CouchDB |	MySQL, PostgreSQL, OracleDB| 
+
+## Some Alternative NOSQL databases to MongoDB?
+- Apache Hbase
+- Cassandra
+- Redis
+- neo4j
+- Amazon DynamoDB
+
+<img width="400" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
+<img width="400" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
 
 
 
