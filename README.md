@@ -514,8 +514,9 @@ The following operators assist in evaluating documents.
 - neo4j
 - Amazon DynamoDB
 
-<img width="400" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
-<img width="400" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
+<img width="600" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
+
+<img width="600" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
 
 
 
