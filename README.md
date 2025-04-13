@@ -652,6 +652,13 @@ db.logs.isCapped()
 
 ## $lookup operation is equivalent of JOIN in MongoDB.
 
+## Some Application in mongoDB?
+- IOT
+- Content Management
+- Mobile application
+- Real time Analysis
+- Catalog Managements
+  
 
 
 
