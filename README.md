@@ -557,13 +557,60 @@ The following operators assist in evaluating documents.
 ## Explain Horizontal and Vertical Scalling
 <img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 53 43 PM" src="https://github.com/user-attachments/assets/00471fed-cfdd-460a-a348-189e42ec3a4e" />
 
+<img width="800" height="500" alt="Screenshot 2025-04-13 at 4 09 36 PM" src="https://github.com/user-attachments/assets/eb3c8f88-3db0-4525-b762-d9d6b03caf64" />
 
+## What is replica sets? 
+- A replica set is a group of MongoDB servers that maintain the same data. It’s MongoDB’s way of providing data replication, fault tolerance, and automatic failover.
+- ✅ Think of it like a team of MongoDB servers where one is the leader (Primary) and others are backups (Secondaries).
 
+### Key Components:
+1. Primary
+- Only node that receives write operations.
+- Automatically elected during replica set setup or failover.
+2. Secondary(s)
+- Read-only by default (can be used for read queries with readPreference).
+- Continuously sync data from Primary.
+3. Arbiter (optional)
+- Doesn’t store data.
+- Only helps in election of a new Primary when needed (used to break tie votes).
 
+### Replica sets Diagram
+```
+               [Secondary]
+                   |
+                   v
+[Client] --> [Primary] --> [Secondary]
+                   ^
+                   |
+               [Arbiter]
 
+```
+## What is the use os capped collection
+- A capped collection is a fixed-size collection in MongoDB that automatically overwrites the oldest documents when it reaches its size limit.
+- You can't delete individual documents — MongoDB handles it automatically, and You cannot update documents if it increases their size.
+- Documents are stored and returned in insertion order.
+<img width="1097" height="500" alt="Screenshot 2025-04-13 at 4 15 04 PM" src="https://github.com/user-attachments/assets/2b0dd373-1b10-44e5-aad0-4e2cef1713bd" />
 
+### Use Cases
+- Application logs
+- Chat messages (latest N messages)
+- Sensor data (e.g., temperature, motion)
+- Notification/event streams
 
+  ** Example**
+ ```
+  db.createCollection("logs", {
+  capped: true,
+  size: 10485760,  // 10 MB
+  max: 1000        // optional: max number of documents
+  })
 
+db.logs.isCapped()
 
+ ```
+- Capped collections are perfect when you need fast writes, fixed storage, and don't care about keeping old data forever.
+
+## Handle large file image and all
+<img width="1020" height="500" alt="Screenshot 2025-04-13 at 4 19 16 PM" src="https://github.com/user-attachments/assets/dae2b4b8-547d-4ee2-aaee-2e18b1e2437d" />
 
 
