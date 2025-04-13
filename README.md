@@ -490,7 +490,25 @@ The following operators assist in evaluating documents.
 - $where: Uses a JavaScript expression to match documents
 
 ---
-# MongoDB Udemy
+---
+---
+# MongoDB 
+
+## Difference between mongoDB and SQL
+| **Feature** | **MongoDB (NoSQL)** | **SQL (MySQL, PostgreSQL,** | 
+| ------------ | ---------------| ------------ |
+| Data Structure| 	Document-based (JSON-like BSON)| 	Table-based (rows & columns)| 
+| Schema| 	Schema-less (flexible)| 	Fixed schema (defined in advance)| 
+| Query Language	| MongoDB Query Language (MQL)| 	Structured Query Language (SQL)| 
+| Joins| 	Limited support via $lookup | Strong support for joins (foreign keys)| 
+| Scalability| 	Horizontally scalable (easy sharding)| 	Vertically scalable (harder to scale out)| 
+| Transactions| 	Supported (since v4.0), but less robust than SQL| 	Strong, ACID-compliant transactions| 
+| Use Case| 	Best for unstructured or semi-structured data	| Best for structured data with relationships| 
+| Speed	| Faster for large unstructured data sets | 	Slower when handling large, unrelated datasets| 
+| Examples	| MongoDB, CouchDB |	MySQL, PostgreSQL, OracleDB| 
+
+
+
 
 
 
