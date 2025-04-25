@@ -659,7 +659,18 @@ db.logs.isCapped()
 - Real time Analysis
 - Catalog Managements
 
-# All Operator in MongoDB
+# All data type in MongoDB
+1. Null
+2. Boolean
+Number
+String
+Date
+Regular expression
+Array
+Embedded document
+Object ID
+Binary Data
+
 
 
 
