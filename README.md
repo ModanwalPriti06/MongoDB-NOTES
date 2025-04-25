@@ -346,8 +346,9 @@ $or : [
 ```db.students.find(lastName:{$in:["Ghosh", "Amin"]})```
 
 # Aggregration
-Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
-Aggregation is used to perform complex data search operations in the mongo query which can't be done in normal "find" query.
+- Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
+- Aggregation is used to perform complex data search operations in the mongo query which can't be done in normal "find" query.
+- The MongoDB Aggregation Pipeline serves as a framework for data processing and transformation within MongoDB. It involves a series of sequential stages, facilitating operations like filtering, projection, grouping, and sorting on documents. Each stage in the pipeline processes the data and forwards the results to the subsequent stage, culminating in the generation of the final output.
 
 - count: $count
 - sum: $sum
