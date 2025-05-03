@@ -21,7 +21,6 @@
 
 ## BSON? 
 - Binary structure encoded type and length information, which allow it to be traversed much more quickly compared to JSON.
- 
 
 ## Feature of MongoDB
 <img  width="1000" height="600"  alt="Screenshot 2025-04-13 at 4 49 21 PM" src="https://github.com/user-attachments/assets/6967672d-bd0c-4181-8eb0-b476b7683b47" />
@@ -38,6 +37,8 @@
 | Use Case| 	Best for unstructured or semi-structured data	| Best for structured data with relationships| 
 | Speed	| Faster for large unstructured data sets | 	Slower when handling large, unrelated datasets| 
 | Examples	| MongoDB, CouchDB |	MySQL, PostgreSQL, OracleDB| 
+
+<img width="843" alt="Run Manually mongodb" src="https://github.com/user-attachments/assets/e60eea80-d009-4b81-a7db-08e6a6b3417f" />
 
 ## Some Alternative NOSQL databases to MongoDB?
 - Apache Hbase
