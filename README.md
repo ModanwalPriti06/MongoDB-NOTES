@@ -663,14 +663,28 @@ db.logs.isCapped()
 # All data type in MongoDB
 1. Null
 2. Boolean
-Number
-String
-Date
-Regular expression
-Array
-Embedded document
-Object ID
-Binary Data
+3. Number
+4. String
+5. Date
+6. Regular expression
+7. Array
+8. Embedded document
+9. Object ID
+10. Binary Data
+
+# Transaction in MongoDB
+- A Transaction is a set of operation that is executed as a single atomic unit.
+- Example - there is three operation and that is transaction when all will be completed means transaction if any one is fail then it is cancel , means not traansaction.
+- Example2 - A have 500Rs. and b have 0Rs. Now A want to send 100 rs to B so when transaction is completed means A- 100 and B+ 100. If happen then see updation in both side.
+- Transaction provide data consistency by ensuring that either all the operation within the transaction are commited to the database, or none of them are.
+- Transaction are designed to provide ACID properties.
+
+## ACID Properties
+1. Atomicity
+2. Consistency
+3. Isolation
+4. Durability
+ 
 
 
 
