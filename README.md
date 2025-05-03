@@ -42,7 +42,10 @@ Ctrl + l = Clear terminal
 | Speed	| Faster for large unstructured data sets | 	Slower when handling large, unrelated datasets| 
 | Examples	| MongoDB, CouchDB |	MySQL, PostgreSQL, OracleDB| 
 
+## MongoDb CLI (Command line interface)
 <img width="843" alt="Run Manually mongodb" src="https://github.com/user-attachments/assets/e60eea80-d009-4b81-a7db-08e6a6b3417f" />
+<img width="566" alt="Screenshot 2025-05-03 at 4 12 16 PM" src="https://github.com/user-attachments/assets/44c078c2-d415-4455-9d28-4196562d65e4" />
+
 
 ## Some Alternative NOSQL databases to MongoDB?
 - Apache Hbase
