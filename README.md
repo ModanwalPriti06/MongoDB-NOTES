@@ -46,8 +46,15 @@ Ctrl + l = Clear terminal
 <img width="843" alt="Run Manually mongodb" src="https://github.com/user-attachments/assets/e60eea80-d009-4b81-a7db-08e6a6b3417f" />
 <img width="566" alt="Screenshot 2025-05-03 at 4 12 16 PM" src="https://github.com/user-attachments/assets/44c078c2-d415-4455-9d28-4196562d65e4" />
 
+Schema Validation through CLI
+<img width="930" alt="Screenshot 2025-05-03 at 5 17 16 PM" src="https://github.com/user-attachments/assets/292d1deb-d763-44b7-8de9-d828650bf813" />
+
+Modify Schema Validation
+<img width="618" alt="Screenshot 2025-05-03 at 5 20 41 PM" src="https://github.com/user-attachments/assets/6ef69d6e-5e58-42d8-8093-7d9df882605c" />
+
 ```
 Create DB- use db_name 
+Create collection: db.createCollection('students')
 Show all collections: show collections
 Drop db: db.dropDatabase
 drop Collection: db.collection_name.drop()
@@ -271,6 +278,7 @@ db.mydb.save({name: 'priti'});
 db.mydb.save([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
 ```
 <img width="1305" alt="Screenshot 2025-05-03 at 5 09 41 PM" src="https://github.com/user-attachments/assets/1215a72c-f8dd-4d5a-b6c2-fc599d38c55d" />
+
 ## Read
 ```
 db.mydb.find() - Return curser/pointer with the help of this can iterate over the array
@@ -556,7 +564,33 @@ The following operators assist in evaluating documents.
 - $text: Performs a text search
 - $where: Uses a JavaScript expression to match documents
 
+## Element Query Operator
+1. $exist: Matches the document that have the specific field.
+```
+  db.users.find({ email: { $exists: true } })
+```
+2. $type: Checks if the field is of a specific BSON data type.
+```
+db.products.find({ price: { $type: "double" } })
+or
+db.products.find({ price: { $type: 1 } }) // 1 = double
+```
 ---
+
+## Next level Query Operator
+1. $expr: Allows to use aggregation expressions inside the find() query, enabling you to compare fields within the same document, or use logical/math expressions in a standard query.
+```
+//compare two fields
+db.orders.find({
+  $expr: { $gt: ["$amountPaid", "$totalCost"] }
+})
+
+//match both are equal or not
+db.transactions.find({
+  $expr: { $eq: ["$debit", "$credit"] }
+})
+```
+2. 
 
 ## what is MongoDB Replication and sharding
 <img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 49 37 PM" src="https://github.com/user-attachments/assets/46352552-d2dd-44a4-9486-a08ae1180fc9" />
@@ -675,7 +709,7 @@ db.logs.isCapped()
 - Transaction are designed to provide ACID properties.
 
 ## ACID Properties
-1. Atomicity
+1. Atomicity - Achieve Document Level (either fail either complete)
 2. Consistency
 3. Isolation
 4. Durability
