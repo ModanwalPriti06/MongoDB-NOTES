@@ -1,58 +1,75 @@
-:smile: 
-:rocket:
-:cry:
-✍️
-```
-Emphasis and Lists:
-Use *italic* or **bold** to add emphasis.
-Create bulleted or numbered lists.
-
-Headers:
-Use #, ##, ###, etc., for different levels of headings.
-
-Links:
-Create hyperlinks using [link text](URL).
-
-Images:
-Embed images with ![alt text](image URL).
-
-Code Blocks:
-Present code using triple backticks (`) to create code blocks. You can specify the programming language for syntax highlighting after the first triple backtick, like ```python.
-
-Tables:
-Design tables using the | symbol to separate columns.
-
-Horizontal Lines:
-Add horizontal lines with three hyphens (---) or asterisks (***).
-
-Blockquotes:
-Use > to create blockquotes for important information or quotes.
-
-Inline Code:
-Highlight inline code with backticks, like inline code.
-
-Footnotes:
-Include footnotes using [^1] and define them at the bottom of your document.
-
-Math Formulas:
-If your project involves mathematical expressions, you can use LaTeX-style math notation enclosed in $$ for block-level math, or $ for inline math.
-
-Checkboxes:
-Create checkboxes by using - [ ] for an unchecked box and - [x] for a checked box.
-
-Task Lists:
-Use - [ ] to create task lists, which can be used for tracking to-dos or milestones.
-
-GitHub Flavored Markdown (GFM):
-GitHub supports some additional features such as @mentions, issue and pull request linking, and automatic linking of URLs.
-
-Emoji:
-You can use emoji in your README to add some personality and context. For example, :smile: or :rocket:.
-
-```
-
 # MERN-NOTES
-##Install Mongodb and compass
+# MongoDB Topic
+1. MongoDB’s design philosophy and architecture
+2. MongoDB Model
+3. API Method
+4. CRUD operations
+5. Data modeling
+6. Indexing and performance
+7. Aggregation
+8. Replication
+9. Sharding
+
+---
+# MongoDB 
+
+## Feature of MongoDB
+<img  width="1000" height="600"  alt="Screenshot 2025-04-13 at 4 49 21 PM" src="https://github.com/user-attachments/assets/6967672d-bd0c-4181-8eb0-b476b7683b47" />
+
+## Difference between mongoDB and SQL
+| **Feature** | **MongoDB (NoSQL)** | **SQL (MySQL, PostgreSQL,** | 
+| ------------ | ---------------| ------------ |
+| Data Structure| 	Document-based (JSON-like BSON)| 	Table-based (rows & columns)| 
+| Schema| Schema-less (flexible)| 	Fixed schema (defined in advance)| 
+| Query Language	| MongoDB Query Language (MQL)| 	Structured Query Language (SQL)| 
+| Joins| 	Limited support via $lookup | Strong support for joins (foreign keys)| 
+| Scalability| 	Horizontally scalable (easy sharding)| 	Vertically scalable (harder to scale out)| 
+| Transactions| 	Supported (since v4.0), but less robust than SQL| 	Strong, ACID-compliant transactions| 
+| Use Case| 	Best for unstructured or semi-structured data	| Best for structured data with relationships| 
+| Speed	| Faster for large unstructured data sets | 	Slower when handling large, unrelated datasets| 
+| Examples	| MongoDB, CouchDB |	MySQL, PostgreSQL, OracleDB| 
+
+## Some Alternative NOSQL databases to MongoDB?
+- Apache Hbase
+- Cassandra
+- Redis
+- neo4j
+- Amazon DynamoDB
+
+<img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
+
+<img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
+
+ 
+## How does mongoDB stored data?
+- MongoDB stores data records as documents (Specially in BSON document) which is gathered together in collections.
+- MongoDB Data Storage Structure
+1. **Database**
+- MongoDB has multiple databases (like in SQL). Each database contains:
+2. **Collections**
+- Collections are like tables in SQL, but more flexible. Each collection contains:
+3. **Documents**
+- Documents are the basic units of data in MongoDB. They are stored in a format called BSON (Binary JSON). Each document is like a JSON object.
+
+## MongoDB is a Schema-less database. If Yes how do you create Schema in MongoDB?
+- The schema of a database describes the structure of the data to be stored.
+   <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/f2599091-601d-4fc0-bc5c-d12d543a0d75" />
+
+## Data Model
+   <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
+
+## Indexing
+- An index in MongoDB is similar to an index in a book — it helps MongoDB locate and access data faster without scanning every document in a collection.
+- By default, MongoDB creates an index on the _id field in every collection. You can also create custom indexes on any other field(s).
+<img width="924" height="500" alt="indexing" src="https://github.com/user-attachments/assets/87ce6c0f-a345-408e-b1a6-8bcdd78cf7ed" />
+
+### How Indexing Works:
+1. Without an index:
+- MongoDB performs a collection scan — it goes through every document to find matches.
+- This is slow for large datasets.
+2. With an index:
+- MongoDB uses a B-tree data structure to jump directly to relevant documents.
+- This makes queries much faster.
 
 ## Start Mongodb And connection frontend to backend
 
@@ -143,15 +160,6 @@ We are going to create the server application with the help of nodejs and expres
  console.log('Server Lisening On Port : ' + port);
  });
 ```
-
-# MongoDB Topic
-1. MongoDB’s design philosophy and architecture
-2. CRUD operations
-3. Data modeling
-4. Indexing and performance
-5. Aggregation
-6. Replication
-7. Sharding
    
 ## MongoDB Model
 ```
@@ -178,8 +186,6 @@ const mongoose = require('mongoose');
  
  module.exports = mongoose.model('Employee', Employee);
 ```
-
-
 
 ## API METHODS: Get, Post, Put and Delete
 1. *GET* : This method is used to request data from a web server. When you type a URL into your web browser and press Enter, your browser sends a GET request to the server, asking for a specific web page. It's like asking for information or reading data. GET requests should not change the server's state.
@@ -216,7 +222,6 @@ const mongoose = require('mongoose');
 - Read:
 - Update:
 - Delete: 
-
 
 # CRUD OPERATION CODE
 ### POST-1
@@ -491,67 +496,6 @@ The following operators assist in evaluating documents.
 - $where: Uses a JavaScript expression to match documents
 
 ---
----
----
-# MongoDB 
-
-## Feature of MongoDB
-<img  width="1000" height="600"  alt="Screenshot 2025-04-13 at 4 49 21 PM" src="https://github.com/user-attachments/assets/6967672d-bd0c-4181-8eb0-b476b7683b47" />
-
-## Difference between mongoDB and SQL
-| **Feature** | **MongoDB (NoSQL)** | **SQL (MySQL, PostgreSQL,** | 
-| ------------ | ---------------| ------------ |
-| Data Structure| 	Document-based (JSON-like BSON)| 	Table-based (rows & columns)| 
-| Schema| Schema-less (flexible)| 	Fixed schema (defined in advance)| 
-| Query Language	| MongoDB Query Language (MQL)| 	Structured Query Language (SQL)| 
-| Joins| 	Limited support via $lookup | Strong support for joins (foreign keys)| 
-| Scalability| 	Horizontally scalable (easy sharding)| 	Vertically scalable (harder to scale out)| 
-| Transactions| 	Supported (since v4.0), but less robust than SQL| 	Strong, ACID-compliant transactions| 
-| Use Case| 	Best for unstructured or semi-structured data	| Best for structured data with relationships| 
-| Speed	| Faster for large unstructured data sets | 	Slower when handling large, unrelated datasets| 
-| Examples	| MongoDB, CouchDB |	MySQL, PostgreSQL, OracleDB| 
-
-## Some Alternative NOSQL databases to MongoDB?
-- Apache Hbase
-- Cassandra
-- Redis
-- neo4j
-- Amazon DynamoDB
-
-<img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/1aa132db-2db2-42ef-8d0e-0aa1c43ed41e" />
-
-<img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
-
- 
-## How does mongoDB stored data?
-- MongoDB stores data records as documents (Specially in BSON document) which is gathered together in collections.
-- MongoDB Data Storage Structure
-1. **Database**
-- MongoDB has multiple databases (like in SQL). Each database contains:
-2. **Collections**
-- Collections are like tables in SQL, but more flexible. Each collection contains:
-3. **Documents**
-- Documents are the basic units of data in MongoDB. They are stored in a format called BSON (Binary JSON). Each document is like a JSON object.
-
-## MongoDB is a Schema-less database. If Yes how do you create Schema in MongoDB?
-- The schema of a database describes the structure of the data to be stored.
-   <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/f2599091-601d-4fc0-bc5c-d12d543a0d75" />
-
-## Data Model
-   <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
-
-## Indexing
-- An index in MongoDB is similar to an index in a book — it helps MongoDB locate and access data faster without scanning every document in a collection.
-- By default, MongoDB creates an index on the _id field in every collection. You can also create custom indexes on any other field(s).
-<img width="924" height="500" alt="indexing" src="https://github.com/user-attachments/assets/87ce6c0f-a345-408e-b1a6-8bcdd78cf7ed" />
-
-### How Indexing Works:
-1. Without an index:
-- MongoDB performs a collection scan — it goes through every document to find matches.
-- This is slow for large datasets.
-2. With an index:
-- MongoDB uses a B-tree data structure to jump directly to relevant documents.
-- This makes queries much faster.
 
 ## what is MongoDB Replication and sharding
 <img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 49 37 PM" src="https://github.com/user-attachments/assets/46352552-d2dd-44a4-9486-a08ae1180fc9" />
@@ -684,8 +628,10 @@ db.logs.isCapped()
 2. Consistency
 3. Isolation
 4. Durability
-<img width="860" height="580" alt="1" src="https://github.com/user-attachments/assets/0995dde4-a821-4a45-98fc-d74affc9f22e" />
+<img width="860" alt="1" src="https://github.com/user-attachments/assets/0995dde4-a821-4a45-98fc-d74affc9f22e" />
 <img width="860" height="580" alt="2" src="https://github.com/user-attachments/assets/f7448613-ebe0-4bed-9524-a53604566144" />
+
+
 
 
  
