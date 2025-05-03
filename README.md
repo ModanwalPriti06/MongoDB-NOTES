@@ -674,7 +674,7 @@ db.logs.isCapped()
 
 # Transaction in MongoDB
 - A Transaction is a set of operation that is executed as a single atomic unit.
-- Example - there is three operation and that is transaction when all will be completed means transaction if any one is fail then it is cancel , means not traansaction.
+- Example - there is three operation and that is transaction when all will be completed means transaction if any one is fail then it is cancel, means not traansaction.
 - Example2 - A have 500Rs. and b have 0Rs. Now A want to send 100 rs to B so when transaction is completed means A- 100 and B+ 100. If happen then see updation in both side.
 - Transaction provide data consistency by ensuring that either all the operation within the transaction are commited to the database, or none of them are.
 - Transaction are designed to provide ACID properties.
@@ -684,6 +684,7 @@ db.logs.isCapped()
 2. Consistency
 3. Isolation
 4. Durability
+
  
 
 
