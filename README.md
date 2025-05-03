@@ -45,6 +45,7 @@ Ctrl + l = Clear terminal
 ## MongoDb CLI (Command line interface)
 <img width="843" alt="Run Manually mongodb" src="https://github.com/user-attachments/assets/e60eea80-d009-4b81-a7db-08e6a6b3417f" />
 <img width="566" alt="Screenshot 2025-05-03 at 4 12 16 PM" src="https://github.com/user-attachments/assets/44c078c2-d415-4455-9d28-4196562d65e4" />
+
 ```
 Create DB- use db_name 
 Show all collections: show collections
@@ -61,11 +62,9 @@ drop Collection: db.collection_name.drop()
   nickName: { isthere : true , address: {'Varanshi', 'banglore'} }
 }
 ```
-
 ```
  db.students.find({'nickName.isthere' : true})
 ```
-
 ## Some Alternative NOSQL databases to MongoDB?
 - Apache Hbase
 - Cassandra
@@ -77,7 +76,6 @@ drop Collection: db.collection_name.drop()
 
 <img width="800" height="600" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/708ae847-d8e5-4130-b52e-e57f2a86b9df" />
 
- 
 ## How does mongoDB stored data?
 - MongoDB stores data records as documents (Specially in BSON document) which is gathered together in collections.
 - MongoDB Data Storage Structure
