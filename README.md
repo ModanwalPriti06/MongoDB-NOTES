@@ -45,7 +45,26 @@ Ctrl + l = Clear terminal
 ## MongoDb CLI (Command line interface)
 <img width="843" alt="Run Manually mongodb" src="https://github.com/user-attachments/assets/e60eea80-d009-4b81-a7db-08e6a6b3417f" />
 <img width="566" alt="Screenshot 2025-05-03 at 4 12 16 PM" src="https://github.com/user-attachments/assets/44c078c2-d415-4455-9d28-4196562d65e4" />
+```
+Create DB- use db_name 
+Show all collections: show collections
+Drop db: db.dropDatabase
+drop Collection: db.collection_name.drop()
 
+```
+
+## Embedded Documents
+- Inside one document we can create another document but limitation is 16mb only
+```
+{
+  name: 'Ram',
+  nickName: { isthere : true , address: {'Varanshi', 'banglore'} }
+}
+```
+
+```
+ db.students.find({'nickName.isthere' : true})
+```
 
 ## Some Alternative NOSQL databases to MongoDB?
 - Apache Hbase
@@ -235,12 +254,61 @@ const mongoose = require('mongoose');
 - Update: PUT-> UserModal.findByIdAndUpdate({{_id:id},{name: req.body.name}}) //here _id it's by default field but name,age etc and other key is that same name which is in model.
 - Delete: DELETE -> UserModal.findByIdAndDelete({_id:req.params.id})
 
-### Frontend CRUD OPeration TODO:
-- Add:
-- Read:
-- Update:
-- Delete: 
+### CRUD Operation TODO:
+- Create: insertOne, insertMany
+- Read: find, findMany
+- Update: updateOne, updateMany, replaceOne
+- Delete: deleteOne, deletemany
 
+#CRUD
+## Create
+```
+db.mydb.insert({name: 'priti'})  // become old
+db.mydb.insertOne({name: 'priti'});
+db.mydb.insertMany([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
+
+OR
+
+db.mydb.save({name: 'priti'});
+db.mydb.save([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
+```
+<img width="1305" alt="Screenshot 2025-05-03 at 5 09 41 PM" src="https://github.com/user-attachments/assets/1215a72c-f8dd-4d5a-b6c2-fc599d38c55d" />
+## Read
+```
+db.mydb.find() - Return curser/pointer with the help of this can iterate over the array
+db.mydb.find({}) - limit(), count(), toArray()
+db.people.find().pretty()
+db.mydb.findOne({name:'priti'}) - return object single object
+db.people.find({name: 'Tom'}, {_id: 0, age: 1})
+
+** Enginnering_Digest> db.students.find({}).forEach((item)=>{printjson(item)}) 
+```
+## Update
+```
+db.people.update({name: 'Tom'}, {age: 29, name: 'Tom'})
+db.people.updateOne({name: 'Tom'},{age: 29, name: 'Tom'})
+db.people.updateMany({name: 'Tom'},{age: 29, name: 'Tom'})
+db.people.update({name: 'Tom'}, {$set: {age: 29}})
+db.people.updateOne({name: 'Tom'},{$set:{age: 30}) //Will update only first matching document.
+db.people.updateMany({name: 'Tom'},{$set:{age: 30}}) //Will update all matching documents.
+db.people.updateMany({name: 'Tom'},{$set:{age: 30, salary:50000}})
+```
+## Delete
+```
+// New Version
+db.people.deleteOne({name: 'Tom'})
+db.people.deleteMany({})
+
+// All versions
+db.people.remove({name: 'Tom'})
+db.people.remove({name: 'Tom'}, true)
+```
+MongoDB's remove() method. If you execute this command without any argument or without empty argument it will remove all documents from the collection.
+```
+db.people.remove();
+        or
+db.people.remove({});
+```
 # CRUD OPERATION CODE
 ### POST-1
 ```
@@ -277,66 +345,24 @@ app.post('/api/tasks', async (req, res) => {
   }
 });
 ```
+# Projection in MongoDB
+```
+db.mydb.find({},{name: 1})
+db.mydb.find({},{name: 1, _id: 0})
 
-#CRUD
-## Create
 ```
-db.mydb.insert({name: 'priti'})
-db.mydb.insertOne({name: 'priti'});
-db.mydb.insertMany([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
 
-OR
-
-db.mydb.save({name: 'priti'});
-db.mydb.save([{name: 'priti', age: 20}, {name: 'Kriti', id: 02, age: 18, address: 'varanshi' }]);
-```
-## Read
-```
-db.mydb.find()
-db.mydb.find({})
-db.people.find().pretty()
-db.mydb.findOne({name:'priti'})
-db.people.find({name: 'Tom'}, {_id: 0, age: 1})
-```
-## Update
-```
-db.people.update({name: 'Tom'}, {age: 29, name: 'Tom'})
-db.people.updateOne({name: 'Tom'},{age: 29, name: 'Tom'})
-db.people.updateMany({name: 'Tom'},{age: 29, name: 'Tom'})
-db.people.update({name: 'Tom'}, {$set: {age: 29}})
-db.people.updateOne({name: 'Tom'},{$set:{age: 30}) //Will update only first matching document.
-db.people.updateMany({name: 'Tom'},{$set:{age: 30}}) //Will update all matching documents.
-db.people.updateMany({name: 'Tom'},{$set:{age: 30, salary:50000}})
-```
-## Delete
-```
-// New Version
-db.people.deleteOne({name: 'Tom'})
-db.people.deleteMany({name: 'Tom'})
-
-// All versions
-db.people.remove({name: 'Tom'})
-db.people.remove({name: 'Tom'}, true)
-```
-MongoDB's remove() method. If you execute this command without any argument or without empty argument it will remove all documents from the collection.
-```
-db.people.remove();
-        or
-db.people.remove({});
-```
-### (Use the positional operator $)
-
+# (Use the positional operator $)
 Ques: {name: 'Tom', age: 28, marks: [50, 60, 70]} Update Tom's marks to 55 where marks are 50 (Use the positional operator $)           
-
 Ans: db.people.update({name: "Tom", marks: 50}, {"$set": {"marks.$": 55}})
 
-## limit, skip, sort and count the results of the find() method
+# limit, skip, sort and count the results of the find() method
 - db.test.find({}).skip(3)
 - db.test.find({}).sort({ "name" : -1}) //descending order sort
 - db.test.find({}).count()
 - db.test.find({}).sort({ "name" : -1}).skip(1).limit(2)
 
-## Query Document - Using AND, OR and IN Conditions
+# Query Document - Using AND, OR and IN Conditions
 - AND Queries
 ```
 db.students.find({
@@ -367,6 +393,25 @@ $or : [
 ```
 - IN Queries 
 ```db.students.find(lastName:{$in:["Ghosh", "Amin"]})```
+
+
+# Data Type 
+1. Null
+2. Boolean
+3. Number
+4. String
+5. Date
+6. Regular expression
+7. Array
+8. Embedded document
+9. Object ID
+10. Binary Data
+11. ISO Date
+12. Timestamp
+    
+<img width="1447" alt="Screenshot 2025-05-03 at 5 01 05 PM" src="https://github.com/user-attachments/assets/38063f58-063b-4060-b2d2-6729d755bf69" />
+<img width="1152" alt="Screenshot 2025-05-03 at 5 02 44 PM" src="https://github.com/user-attachments/assets/c75dd39c-6087-4e5d-90b5-1ae6c857d1e1" />
+
 
 # Aggregration
 - Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
@@ -622,17 +667,7 @@ db.logs.isCapped()
 - Real time Analysis
 - Catalog Managements
 
-# All data type in MongoDB
-1. Null
-2. Boolean
-3. Number
-4. String
-5. Date
-6. Regular expression
-7. Array
-8. Embedded document
-9. Object ID
-10. Binary Data
+
 
 # Transaction in MongoDB
 - A Transaction is a set of operation that is executed as a single atomic unit.
