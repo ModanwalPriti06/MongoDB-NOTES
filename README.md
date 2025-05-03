@@ -10,6 +10,10 @@
 8. Replication
 9. Sharding
 
+```
+Ctrl + l = Clear terminal
+```
+
 ---
 # MongoDB 
 
