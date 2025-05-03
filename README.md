@@ -684,6 +684,9 @@ db.logs.isCapped()
 2. Consistency
 3. Isolation
 4. Durability
+<img width="860" height="580" alt="1" src="https://github.com/user-attachments/assets/0995dde4-a821-4a45-98fc-d74affc9f22e" />
+<img width="860" height="580" alt="2" src="https://github.com/user-attachments/assets/f7448613-ebe0-4bed-9524-a53604566144" />
+
 
  
 
