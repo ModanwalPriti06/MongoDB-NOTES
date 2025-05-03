@@ -13,6 +13,16 @@
 ---
 # MongoDB 
 
+- MongoDB is NoSQL, schemaless database that have collection and inside document which store JSON format. less relation and data is store together.
+- MongoDB Shell: A command-line interface to interact with MongoDB databases. Running queries (find(), insertOne(), etc.)
+- MongoDB Compass: A GUI (Graphical User Interface) tool provided by MongoDB.
+- MongoDB Atlas UI (Cloud): Hosting and managing cloud databases. Monitoring, backups, performance tracking.
+- MongoDB Drivers (for Node.js, Python, Java, etc.):  Libraries that allow applications to interact with MongoDB. Used in: Backend apps using languages like: Node, JAVA , etc.
+
+## BSON? 
+- Binary structure encoded type and length information, which allow it to be traversed much more quickly compared to JSON.
+ 
+
 ## Feature of MongoDB
 <img  width="1000" height="600"  alt="Screenshot 2025-04-13 at 4 49 21 PM" src="https://github.com/user-attachments/assets/6967672d-bd0c-4181-8eb0-b476b7683b47" />
 
