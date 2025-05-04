@@ -12,6 +12,7 @@
 
 ```
 Ctrl + l = Clear terminal
+.explain()
 ```
 
 ---
@@ -101,9 +102,35 @@ drop Collection: db.collection_name.drop()
    <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
 
 ## Indexing in MongoDB
+
+- Searching Fast:
+- Indexing also help in sorting
+- When a query is executed mongoDB can use the index to quickly locate the document that match the query by searching through the B-tree. (Balance Tree)
 - An index in MongoDB is similar to an index in a book — it helps MongoDB locate and access data faster without scanning every document in a collection.
 - By default, MongoDB creates an index on the _id field in every collection. You can also create custom indexes on any other field(s).
 <img width="924" height="500" alt="indexing" src="https://github.com/user-attachments/assets/87ce6c0f-a345-408e-b1a6-8bcdd78cf7ed" />
+
+
+### Type of Indexing in MongoDB
+1. Single field indexes
+  ```
+  db.teachers.createIndex({age: 1});  //ascending order
+  db.teachers.createIndex({age: 1}, {unique: true});  //ascending order
+  db.teachers.dropIndex({age});  //delete Indexing
+  db.teachers.dropIndex({age: 1});  //delete Indexing
+  db.teachers.getIndexes();  //all index return 
+```
+2. Compound Indexes
+```
+  db.teachers.createIndex({age: 1, gender: 1});  //ascending order and order matter
+  db.teachers.dropIndex({age});  //delete Indexing
+  db.teachers.dropIndex({age: 1});  //delete Indexing
+  db.teachers.getIndexes();  //all index return 
+```
+3. Text Indexes
+
+### What is A Covered Query
+-------------
 
 ### How Indexing Works:
 1. Without an index:
