@@ -100,7 +100,7 @@ drop Collection: db.collection_name.drop()
 ## Data Model
    <img width="800" height="400" alt="node js 2025-03-21 at 4 13 19 PM" src="https://github.com/user-attachments/assets/e330745a-9bfc-4033-a11a-e6b5f9630488" />
 
-## Indexing
+## Indexing in MongoDB
 - An index in MongoDB is similar to an index in a book — it helps MongoDB locate and access data faster without scanning every document in a collection.
 - By default, MongoDB creates an index on the _id field in every collection. You can also create custom indexes on any other field(s).
 <img width="924" height="500" alt="indexing" src="https://github.com/user-attachments/assets/87ce6c0f-a345-408e-b1a6-8bcdd78cf7ed" />
@@ -428,6 +428,12 @@ $or : [
 - sum: $sum
 - average: $avg
 - group: $group
+
+## Array Update Query
+- $addToSet: Adds a value to an array only if it doesn’t already exist — like a "set".
+- $push: Adds values to an array when grouping documents.
+- $pull: Removes matching elements from an array.
+- $pop: Removes the first or last element from an array.
 
 ## Aggregate query examples useful for work and learning:
 1. Match: Used to match documents
