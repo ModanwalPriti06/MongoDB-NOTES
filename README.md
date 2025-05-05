@@ -121,6 +121,7 @@ drop Collection: db.collection_name.drop()
   db.teachers.getIndexes();  //all index return 
 ```
 2. Compound Indexes
+- A multi-key index is an index that can be created on an array field 
 ```
   db.teachers.createIndex({age: 1, gender: 1});  //ascending order and order matter
   db.teachers.dropIndex({age});  //delete Indexing
@@ -128,9 +129,19 @@ drop Collection: db.collection_name.drop()
   db.teachers.getIndexes();  //all index return 
 ```
 3. Text Indexes
+- In MongoDB, a text index allows you to perform text searches on string content within your documents. It's used to search for words or phrases in fields like titles, descriptions, or any other text-based content.
+```
+db.articles.createIndex({
+  title: "text",
+  body: "text"
+})
+```
 
 ### What is A Covered Query
--------------
+- A Covered query is a query in which
+ - All the fields in the query are part of an index.
+ - All the fields returned in the query are in the same index. 
+<img width="942" alt="Screenshot 2025-05-05 at 11 05 09 PM" src="https://github.com/user-attachments/assets/26e46092-293f-4af9-96bc-5c47c45577cc" />
 
 ### How Indexing Works:
 1. Without an index:
