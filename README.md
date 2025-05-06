@@ -136,6 +136,9 @@ db.articles.createIndex({
   body: "text"
 })
 ```
+```
+db.students.find({$text: {$search: 'youtuber'} } );
+```
 
 ### What is A Covered Query
 - A Covered query is a query in which
