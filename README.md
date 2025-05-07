@@ -464,9 +464,21 @@ $or : [
 
 
 # Aggregration
-- Aggregations operations process data records and return computed results. Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. MongoDB provides three ways to perform aggregation: the aggregation pipeline, the map-reduce function, and single purpose aggregation methods.
+
+- It group the data from multiple documents into single documents based on the specific expression.
+- pipeline - array of different operation
+- Aggregations operations process data records and return computed results.
+- Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result.
+- MongoDB provides three ways to perform aggregation:
+    - The aggregation pipeline,
+    - the map-reduce function, and
+    - single purpose aggregation methods.
 - Aggregation is used to perform complex data search operations in the mongo query which can't be done in normal "find" query.
 - The MongoDB Aggregation Pipeline serves as a framework for data processing and transformation within MongoDB. It involves a series of sequential stages, facilitating operations like filtering, projection, grouping, and sorting on documents. Each stage in the pipeline processes the data and forwards the results to the subsequent stage, culminating in the generation of the final output.
+
+```
+db.collection.aggregation(pipeline, option)
+```
 
 - count: $count
 - sum: $sum
@@ -489,9 +501,15 @@ $or : [
    ```
    db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1}}]);
    ```
-3. Group: $group is used to group documents by specific field, here documents are grouped by "dept" field's value. Another useful feature is that you can group by null, it means all documents will be aggregated into one.
+3. Group: $group is used to group documents by specific field, here documents are grouped by "dept" field's value. Another useful feature is that you can group by null, it means all documents will be aggregated into one based on dept.
+```
+  $group: { _id: expression, field1: expression, field2; expression}
+```  
 ```
 db.employees.aggregate([{$group:{"_id":"$dept"}}]);
+db.employees.aggregate([{$group:{_id:"$dept", names: { $push: "$name" }}}]);
+db.employees.aggregate([{$group:{_id:"$dept", names: { $push: "$$ROOT" }}}]);   // all document pushing
+db.employees.aggregate([{$match: {gender: "Male"}},{$group:{_id:"$age", count: { $sum: 1 }}}]);   // The value of $sum is 1, which mean that for each document in the group the value of number will be incremenrted 1. 
 ```
 4. Sum: $sum is used to count or sum the values inside a group.
 ```
@@ -534,10 +552,106 @@ db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1}}
 ```
 db.employees.aggregate([{$match:{dept:"Admin"}}, {$project:{"name":1, "dept":1, age: {$gt: ["$age", 30]}}}]);
 ```
-14. Comparison operator in match
+14. Comparison operator in match 
 ```
 db.employees.aggregate([{$match:{dept:"Admin", age: {$gt:30}}}, {$project:{"name":1, "dept":1}}]);
 ```
+15. $toDouble Operator
+- The $toDouble operator in MongoDB is an aggregation expression used to convert a value to a double (i.e., a floating-point number).
+```
+db.collection.aggregate([
+  {
+    $project: {
+      priceAsDouble: { $toDouble: "$price" }
+    }
+  } ])
+```
+16. unwind
+- In MongoDB, the $unwind aggregation stage is used to deconstruct an array field from the input documents and output a document for each element of the array.
+```
+{
+  _id: 1,
+  name: "Priti",
+  skills: ["JavaScript", "MongoDB", "React"]
+}
+```
+```
+db.users.aggregate([
+  { $unwind: "$skills" }
+])
+```
+```
+{ _id: 1, name: "Priti", skills: "JavaScript" }
+{ _id: 1, name: "Priti", skills: "MongoDB" }
+{ _id: 1, name: "Priti", skills: "React" }
+```
+17. preserveNullAndEmptyArrays: true
+-  Keeps documents with null or empty arrays.
+
+18. $ifNull
+- In MongoDB, the $ifNull operator is used to check if a value is null or missing, and if so, return a default value.
+```
+Syntax - { $ifNull: [ <expression>, <replacement-if-null> ] }
+
+Example - db.users.aggregate([
+  {
+    $project: {
+      name: 1,
+      location: { $ifNull: ["$city", "Not Provided"] }
+    }
+  }
+])
+```
+19. $addToSet
+- work like set in JS, return only unique value.
+- In MongoDB, the $addToSet operator is used to add a value to an array only if it does not already exist in that array. It's great for avoiding duplicate entries.
+```
+db.collection.updateOne(
+  { _id: 1 },
+  { $addToSet: { tags: "mongodb" } }
+)
+```
+
+20. $filter
+- In MongoDB, the $filter aggregation operator is used to select a subset of an array based on a condition.
+```
+// Synatx:
+ {
+  $filter: {
+    input: <array>,        // The array to filter
+    as: <variable>,        // Variable name for each element
+    cond: <expression>     // Condition to apply
+  }
+}
+
+
+//json
+{
+  _id: 1,
+  scores: [82, 90, 76, 95]
+}
+
+//example
+{
+  $project: {
+    highScores: {
+      $filter: {
+        input: "$scores",
+        as: "score",
+        cond: { $gt: ["$$score", 85] }
+      }
+    }
+  }
+}
+
+//result
+{
+  _id: 1,
+  highScores: [90, 95]
+}
+```
+<img width="825" alt="Screenshot 2025-05-07 at 11 47 23 PM" src="https://github.com/user-attachments/assets/ef5df9b7-e224-4bb5-b189-010f50374a8b" />
+
 ## Get sample data
 
 To get random data from certain collection refer to $sample aggregation.
