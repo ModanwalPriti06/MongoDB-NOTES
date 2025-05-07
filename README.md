@@ -139,6 +139,9 @@ db.articles.createIndex({
 ```
 db.students.find({$text: {$search: 'youtuber'} } );
 ```
+```
+db.students.createIndex({name:"text", bio: "text" }, {background: true} );    // background true means when creating index that time block that query only not collection  
+```
 
 ### What is A Covered Query
 - A Covered query is a query in which
