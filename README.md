@@ -585,7 +585,7 @@ db.users.aggregate([
 { _id: 1, name: "Priti", skills: "MongoDB" }
 { _id: 1, name: "Priti", skills: "React" }
 ```
-17. preserveNullAndEmptyArrays: true
+17. preserveNullAndEmptyArrays: true,  
 -  Keeps documents with null or empty arrays.
 
 18. $ifNull
@@ -611,8 +611,49 @@ db.collection.updateOne(
   { $addToSet: { tags: "mongodb" } }
 )
 ```
+20. $bucket:
+- $bucket is used when you want to group data by specific numeric ranges (or boundaries), such as categorizing users by age groups or orders by price range.
+```
+//Syntax
+  {
+  $bucket: {
+    groupBy: <expression>,       // Field to group by
+    boundaries: [ <lower1>, <lower2>, ..., <upper> ],  // Bucket boundaries
+    default: <literal>,          // (Optional) Bucket for values outside boundaries
+    output: {                    // (Optional) Accumulators for grouped data
+      <outputField1>: { <accumulator>: <expression> },
+      ...
+    }
+  }
+}
 
-20. $filter
+//Example
+// Group users by age into 3 ranges: 0–20, 21–40, 41–60.
+
+db.users.aggregate([
+  {
+    $bucket: {
+      groupBy: "$age",
+      boundaries: [0, 21, 41, 61],
+      default: "Other",
+      output: {
+        count: { $sum: 1 },
+        names: { $push: "$name" }
+      }
+    }
+  }
+])
+
+//output
+[
+  { "_id": 0, "count": 10, "names": [ ... ] },
+  { "_id": 21, "count": 15, "names": [ ... ] },
+  { "_id": 41, "count": 5, "names": [ ... ] },
+  { "_id": "Other", "count": 2, "names": [ ... ] }
+]
+```
+
+21. $filter
 - In MongoDB, the $filter aggregation operator is used to select a subset of an array based on a condition.
 ```
 // Synatx:
@@ -623,7 +664,6 @@ db.collection.updateOne(
     cond: <expression>     // Condition to apply
   }
 }
-
 
 //json
 {
@@ -651,6 +691,54 @@ db.collection.updateOne(
 }
 ```
 <img width="825" alt="Screenshot 2025-05-07 at 11 47 23 PM" src="https://github.com/user-attachments/assets/ef5df9b7-e224-4bb5-b189-010f50374a8b" />
+
+22. $lookup:
+- Use lookup to populate or you can join. The lookup is an aggregation pipeline stage that allow you to perform left outer join between 2 collection.
+- Join:
+   - Inner Join: ( Intersection ) An Inner Join returns only the rows that have matching values in both tables. If there is no match, the row is excluded from the result.
+   - Left outer join: A Left Outer Join is a type of SQL join that returns all records from the left table, and the matched records from the right table. If there is no match, the result is filled with NULL values for the right     
+                       table’s columns.
+   - Right outer join: All records from the right table. And the matched records from the left table. If there's no match, you get NULL for the left table’s columns
+   - Full Outer Join: All rows from both tables. Matched rows where possible. NULL where there is no match on either side
+```
+//Syntax
+{
+  $lookup: {
+    from: 'otherCollection',
+    localField: 'fieldInCurrentCollection',
+    foreignField: 'fieldInOtherCollection',
+    as: 'resultingArrayField'
+  }
+}
+
+//Example
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "customers",
+      localField: "cust_id",
+      foreignField: "_id",
+      as: "customerDetails"
+    }
+  }
+])
+
+```
+23. $project: Uses
+- Include or exclude specific fields
+- Rename fields
+- Create computed fields
+- Reshape documents
+```
+{
+  $project: {
+    field1: 1,         // include
+    field2: 0,         // exclude
+    newField: "$oldField",   // rename
+    fullName: { $concat: ["$first", " ", "$last"] }  // computed field
+  }
+}
+```
 
 ## Get sample data
 
@@ -772,14 +860,14 @@ db.transactions.find({
 
 ### Key Components:
 1. Primary
-- Only node that receives write operations.
-- Automatically elected during replica set setup or failover.
+  - Only node that receives write operations.
+  - Automatically elected during replica set setup or failover.
 2. Secondary(s)
-- Read-only by default (can be used for read queries with readPreference).
-- Continuously sync data from Primary.
+  - Read-only by default (can be used for read queries with readPreference).
+  - Continuously sync data from Primary.
 3. Arbiter (optional)
-- Doesn’t store data.
-- Only helps in election of a new Primary when needed (used to break tie votes).
+  - Doesn’t store data.
+  - Only helps in election of a new Primary when needed (used to break tie votes).
 
 ### Replica sets Diagram
 ```
@@ -796,6 +884,11 @@ db.transactions.find({
 - A capped collection is a fixed-size collection in MongoDB that automatically overwrites the oldest documents when it reaches its size limit.
 - You can't delete individual documents — MongoDB handles it automatically, and You cannot update documents if it increases their size.
 - Documents are stored and returned in insertion order.
+- Capped collections are perfect when you need fast writes, fixed storage, and don't care about keeping old data forever.
+- A Capped Collection in MongoDB is a fixed-size collection that automatically overwrites the oldest documents when it reaches its maximum size — similar to a circular buffer or log file.
+- Existing collection we can't create capped collection.
+- Maintain order.
+
 <img width="1097" height="500" alt="Screenshot 2025-04-13 at 4 15 04 PM" src="https://github.com/user-attachments/assets/2b0dd373-1b10-44e5-aad0-4e2cef1713bd" />
 
 ### Use Cases
@@ -804,7 +897,7 @@ db.transactions.find({
 - Sensor data (e.g., temperature, motion)
 - Notification/event streams
 
-  ** Example**
+ ** Example**
  ```
   db.createCollection("logs", {
   capped: true,
@@ -812,10 +905,8 @@ db.transactions.find({
   max: 1000        // optional: max number of documents
   })
 
-db.logs.isCapped()
-
+  db.logs.isCapped()
  ```
-- Capped collections are perfect when you need fast writes, fixed storage, and don't care about keeping old data forever.
 
 ## Handle large file image and all
   <img width="1020" height="500" alt="Screenshot 2025-04-13 at 4 20 40 PM" src="https://github.com/user-attachments/assets/91fcc339-ef86-4377-8ccb-dc24211202f3" />
@@ -864,7 +955,6 @@ db.logs.isCapped()
 - Catalog Managements
 
 
-
 # Transaction in MongoDB
 - A Transaction is a set of operation that is executed as a single atomic unit.
 - Example - there is three operation and that is transaction when all will be completed means transaction if any one is fail then it is cancel, means not traansaction.
@@ -880,12 +970,13 @@ db.logs.isCapped()
 <img width="860" alt="1" src="https://github.com/user-attachments/assets/0995dde4-a821-4a45-98fc-d74affc9f22e" />
 <img width="860" height="580" alt="2" src="https://github.com/user-attachments/assets/f7448613-ebe0-4bed-9524-a53604566144" />
 
-
-
-
- 
-
-
+# Authentication in MongoDB (RBAC)
+- Enabling authentication in MongoDB involve making configuration changes.
+- Authentication in MongoDB ensures that only authorized users can access or manipulate the database. It verifies who you are before allowing operations.
+```
+ security:
+    authorization: enabled
+```
 
 
 
