@@ -844,7 +844,46 @@ db.transactions.find({
 ```
 2. 
 
-## what is MongoDB Replication and sharding
+# what is MongoDB Replication and sharding
+
+## Replication: 
+- Duplication of Data DB, this thing doing asyncrobously, (If one time so many req is there and that req is read and write so primary DB can send some req to handle other Duplication DB).
+- A replica set is a group of MongoDB servers that maintain the same data.
+    1. Primary: Handles all write operations.  
+    2. Secondaries: Copies data from the primary (can handle reads if configured).
+    3. Arbiter (optional): Doesn’t store data but helps in elections.
+  
+  - Writes only go to the primary.
+  - Secondaries never accept writes (unless you promote one during failover).
+
+## Sharding: 
+- Horizontal scaling achieve by sharding. (vertical - increasing size of DB storage).
+- Sharding splits a large collection into smaller, more manageable pieces called "shards", which are distributed across multiple shard servers.
+- 3TB - split in 3 shard: 1Tb+1Tb+1Tb, 2TB - split in 2 shard: 1tb+1tb (distribute data based on req) 
+- In mongoDB we have provided one router mongos. Mongos routes this document to one of keys server. So when call is there then they will know which server req should go.
+- This thing only do dbadmin not developer
+
+### Why Use Sharding?
+- To handle very large datasets that exceed the storage capacity of a single server.
+- To improve read and write performance by distributing the load.
+- To allow scaling out by adding more servers.
+
+### Key Components:
+1. Shard
+  - A MongoDB server that holds a portion of the data.
+  - Each shard is a replica set (for high availability).
+2. Config Server
+  - Stores metadata and configuration settings about the sharded cluster.
+3. Mongos (Query Router)
+  - Interface between the application and the sharded cluster.
+  - Routes queries to appropriate shards.
+    
+### ⚙️ How It Works:
+1. You enable sharding on a database.
+2. Choose a shard key (a field used to distribute data).
+3. MongoDB splits the data into chunks based on the shard key.
+4. Chunks are distributed across shards.
+
 <img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 49 37 PM" src="https://github.com/user-attachments/assets/46352552-d2dd-44a4-9486-a08ae1180fc9" />
 
 <img width="1069" height="500" alt="Screenshot 2025-04-13 at 3 52 06 PM" src="https://github.com/user-attachments/assets/1d444b99-ede4-4cc1-97c8-ad735e27f4e8" />
@@ -977,6 +1016,21 @@ db.transactions.find({
  security:
     authorization: enabled
 ```
+
+# 🔌 What is a Connection Pool?
+A connection pool is a cache of database connections that your app can reuse, instead of opening a new connection every time a user sends a request.
+
+### MongoDB Connection Pool in Node.js (Mongoose or Native)
+```
+mongoose.connect('mongodb://host:port/db', {
+  maxPoolSize: 10  // 👈 max 10 connections at a time // default is 100
+});
+```
+### Why Pooling - Benefit of Connection Pool	Description
+- 🔁 Reuse DB connections	Saves time & resources
+- ⚡ Improves performance	Reduces connection overhead
+- 🧠 Manages concurrency	Controls how many users hit DB
+- 💸 Reduces cost (in cloud)	Prevents overuse of cluster resources
 
 
 
