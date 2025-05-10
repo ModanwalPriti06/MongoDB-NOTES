@@ -14,6 +14,8 @@
 Ctrl + l = Clear terminal
 .explain()
 cls - clear in shell commond
+If bath is set then goto terminal and enter commong - mongosh
+if not set then set path youtube youtube
 ```
 
 ---
