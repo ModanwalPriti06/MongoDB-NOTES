@@ -13,6 +13,7 @@
 ```
 Ctrl + l = Clear terminal
 .explain()
+cls - clear in shell commond
 ```
 
 ---
