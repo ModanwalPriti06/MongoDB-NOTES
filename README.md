@@ -1000,10 +1000,14 @@ db.transactions.find({
 
 # Transaction in MongoDB
 - A Transaction is a set of operation that is executed as a single atomic unit.
+- Transaction provide data consistency by ensuring that either all the operation within the transaction are commited to the db or none of them are.
+- Transaction are designed to provide ACID properties.
 - Example - there is three operation and that is transaction when all will be completed means transaction if any one is fail then it is cancel, means not traansaction.
 - Example2 - A have 500Rs. and b have 0Rs. Now A want to send 100 rs to B so when transaction is completed means A- 100 and B+ 100. If happen then see updation in both side.
-- Transaction provide data consistency by ensuring that either all the operation within the transaction are commited to the database, or none of them are.
-- Transaction are designed to provide ACID properties.
+
+### Start Transaction
+  <img width="700" height="450" alt="transaction example" src="https://github.com/user-attachments/assets/8eacf452-2f75-4456-a97a-6d9324e9dd5a" />
+  <img width="600" height="350" alt="transaction2" src="https://github.com/user-attachments/assets/295e63ae-8391-4777-8380-7c722b0a59f3" />
 
 ## ACID Properties
 1. Atomicity - Achieve Document Level (either fail either complete)
@@ -1036,8 +1040,33 @@ mongoose.connect('mongodb://host:port/db', {
 - 🧠 Manages concurrency	Controls how many users hit DB
 - 💸 Reduces cost (in cloud)	Prevents overuse of cluster resources
 
+# Year and date query
+<img width="719" alt="Screenshot 2025-05-11 at 5 24 16 PM" src="https://github.com/user-attachments/assets/5c1c4113-bd4f-4ca5-865c-257a77555e10" />
 
 
+# MongoDB Atlas
+- ongoDb Atlas is a cloud based database service provided by mongoDB, Inc.
+- It's fully managed db platform designed to host and run mongoDB db on the cloud infrastructure.
 
+### Fullay Managed Services
+MongoDB Atlas takes care of the operational aspects of database management, such as setup, configuration, backups, scaling, and monitoring. This allows developers to focus on building applications without worrying about database administration.
+
+### Scalability
+With MongoDB Atlas, you can easily scale your database resources up or down as your application's needs change. This ensures that your database can handle increasing data volumes and traffic without any downtime.
+
+### High Availability
+The service provides automated failover and redundancy to ensure that your MongoDB databases remain highly available, even in the case of hardware or network failures.
+
+### Security
+MongoDB Atlas implements security best practices to protect your data. It offers features like encrypted data storage, network isolation, and authentication mechanisms to ensure data privacy and integrity.
+
+### Monitoring and Analytics
+MongoDB Atlas provides real-time monitoring and analytics tools to help you understand the performance and behavior of your databases. This helps in identifying and optimizing performance bottlenecks.
+
+### Global Deployment
+MongoDB Atlas allows you to deploy your databases in various regions worldwide, enabling you to provide low-latency access to your users in different geographic locations.
+
+### Integration with Other Cloud Services
+It integrates with other cloud services, such as AWS, Google Cloud Platform, and Azure, making it easier to build complete cloud-based applications.
 
 
