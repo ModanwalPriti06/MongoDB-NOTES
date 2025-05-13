@@ -1070,3 +1070,16 @@ MongoDB Atlas allows you to deploy your databases in various regions worldwide, 
 It integrates with other cloud services, such as AWS, Google Cloud Platform, and Azure, making it easier to build complete cloud-based applications.
 
 
+---
+# Interview Question
+
+1. What are the differences between find() and findOne() in MongoDB?
+ 1. find()
+    - Purpose: It is used to retrieve multiple documents from a collection that match a given query.
+    - Return: It returns a cursor, which can be iterated over, and eventually gives you an array of documents that meet the criteria.
+    - Usage: You can use find() when you expect multiple documents to match the query.
+2. findOne():
+    - Purpose: It retrieves only the first document that matches the query.
+    - Return: It directly returns a single document (the first one that matches the query) or null if no document is found.
+    - Usage: You can use findOne() when you need only one document from the collection that matches the criteria.
+
