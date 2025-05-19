@@ -11,11 +11,14 @@
 9. Sharding
 
 ```
-Ctrl + l = Clear terminal
-.explain()
-cls - clear in shell commond
-If bath is set then goto terminal and enter commong - mongosh
-if not set then set path youtube youtube
+1. Ctrl + l = Clear terminal
+2. .explain()
+3. cls - clear in shell commond
+4. If bath is set then goto terminal and enter commong - mongosh
+5. if not set then set path youtube youtube
+
+6. brew services start mongodb-community
+
 ```
 
 ---
