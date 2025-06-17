@@ -868,7 +868,7 @@ db.transactions.find({
 - Sharding splits a large collection into smaller, more manageable pieces called "shards", which are distributed across multiple shard servers.
 - 3TB - split in 3 shard: 1Tb+1Tb+1Tb, 2TB - split in 2 shard: 1tb+1tb (distribute data based on req) 
 - In mongoDB we have provided one router mongos. Mongos routes this document to one of keys server. So when call is there then they will know which server req should go.
-- This thing only do dbadmin not developer
+- This thing only do Admin not Developer
 
 ### Why Use Sharding?
 - To handle very large datasets that exceed the storage capacity of a single server.
