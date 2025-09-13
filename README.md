@@ -453,18 +453,19 @@ $or : [
 
 
 # Data Type 
-1. Null
-2. Boolean
-3. Number
-4. String
-5. Date
-6. Regular expression
-7. Array
-8. Embedded document
-9. Object ID
-10. Binary Data
-11. ISO Date
-12. Timestamp
+
+1. Array
+2. Binary Data
+3. Boolean
+4. Date
+5. Embedded document
+6. ISO Date
+7. Null
+8. Number
+9. Regular expression
+10. String
+11. Timestamp
+
     
 <img width="1447" alt="Screenshot 2025-05-03 at 5 01 05 PM" src="https://github.com/user-attachments/assets/38063f58-063b-4060-b2d2-6729d755bf69" />
 <img width="1152" alt="Screenshot 2025-05-03 at 5 02 44 PM" src="https://github.com/user-attachments/assets/c75dd39c-6087-4e5d-90b5-1ae6c857d1e1" />
