@@ -462,9 +462,10 @@ $or : [
 6. ISO Date
 7. Null
 8. Number
-9. Regular expression
-10. String
-11. Timestamp
+9. ObjectId
+10. Regular expression
+11. String
+12. Timestamp
 
     
 <img width="1447" alt="Screenshot 2025-05-03 at 5 01 05 PM" src="https://github.com/user-attachments/assets/38063f58-063b-4060-b2d2-6729d755bf69" />
